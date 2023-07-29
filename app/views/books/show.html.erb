@@ -11,10 +11,10 @@
       </td>
       <td><%= @book.title %></td>
       <td><%= @book.introduction %></td>
-      <td>
-        <%= link_to
-      </td>
-      <td></td>
+      <% if @book.user == current_user %>
+        <td><%= link_to "edit", edit_book_path(@book) %></td>
+        <td><%= link_to "destroy",book_path(@book), method: :delete, data: { confirm: "本当に消しますか？" } %></td>
+      <% end %>
     </tr>
   </tbody>
     
